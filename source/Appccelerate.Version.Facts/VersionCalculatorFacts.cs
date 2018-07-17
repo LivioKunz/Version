@@ -19,7 +19,7 @@
 namespace Appccelerate.Version.Facts
 {
     using System;
-
+    
     using FluentAssertions;
 
     using Xunit;
@@ -165,7 +165,7 @@ namespace Appccelerate.Version.Facts
 
             Action action = () => this.testee.CalculateVersion(VersionPattern, "2.0.0.0", null, 1, null);
 
-            action.ShouldThrow<InvalidOperationException>()
+            action.Should().Throw<InvalidOperationException>()
                 .And.Message.Should().Be(VersionCalculator.FormatCannotVersionDueToMissingCommitsCountingPlaceholderExceptionMessage(VersionPattern));
         }
     }
